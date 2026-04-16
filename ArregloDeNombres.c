@@ -14,7 +14,7 @@
 //___________________________
 //DECLARACION DE FUNCIONES
 //___________________________
-void mostrarPersonas(char *Nombres[]);
+void MostrarPersonas(char *Nombres[]);
 
 //___________________________
 //funcion main
@@ -34,7 +34,7 @@ int main(){
         strcpy(V[i], Buff);
     }
     
-    mostrarPersonas(V);
+    MostrarPersonas(V);
     
     return 0;
 }
@@ -42,7 +42,7 @@ int main(){
 //___________________________
 //DEFINICION DE FUNCIONES
 //___________________________
-void mostrarPersonas(char *Nombres[])
+void MostrarPersonas(char *Nombres[])
 {
     for (int i = 0; i < N; i++)
     {
