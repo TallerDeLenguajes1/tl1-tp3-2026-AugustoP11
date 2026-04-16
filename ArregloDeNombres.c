@@ -16,7 +16,9 @@
 //___________________________
 void MostrarPersonas(char *Nombres[]);
 
-int BuscarNombre(char *Nombres[], char *palabra_clave);
+void BuscaNombrePorId(char *Nombres[], int id);
+
+int BuscaNombrePorPalabra(char *Nombres[], char *palabra_clave);
 
 //___________________________
 //funcion main
@@ -38,13 +40,21 @@ int main(){
     
     MostrarPersonas(V);
     
+    int id;
+    printf("\nIngrese un ID: ");
+    scanf("%d", &id);
+    getchar();
+
+    BuscaNombrePorId(V, id);
+
+    
     printf("\nIngrese una palabra clave: ");
     gets(Buff);
     fflush(stdin);
     char *palabra_clave;
     palabra_clave = (char*)malloc(strlen(Buff)*sizeof(char));
     strcpy(palabra_clave, Buff);
-    int buscar = BuscarNombre(V, palabra_clave);
+    int buscar = BuscaNombrePorPalabra(V, palabra_clave);
     return 0;
 }
 
@@ -59,7 +69,17 @@ void MostrarPersonas(char *Nombres[])
     }
 }
 
-int BuscarNombre(char *Nombres[], char *palabra_clave)
+void BuscaNombrePorId(char *Nombres[], int id)
+{
+    if (id > N || N < 0)
+    {
+        printf("\nNo se encontro el valor buscado.\n");
+    } else {
+        printf("\nNombre: %s\n", Nombres[id]);
+    }
+}
+
+int BuscaNombrePorPalabra(char *Nombres[], char *palabra_clave)
 {
     int flag = 0;
     int i = 0;
