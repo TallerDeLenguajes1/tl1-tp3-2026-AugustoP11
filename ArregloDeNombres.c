@@ -16,6 +16,8 @@
 //___________________________
 void MostrarPersonas(char *Nombres[]);
 
+void BuscarNombre(char *Nombres[], int id);
+
 //___________________________
 //funcion main
 //___________________________
@@ -36,6 +38,13 @@ int main(){
     
     MostrarPersonas(V);
     
+    int id;
+    printf("\nIngrese un ID: ");
+    scanf("%d", &id);
+    getchar();
+
+    BuscarNombre(V, id);
+
     return 0;
 }
 
@@ -47,5 +56,15 @@ void MostrarPersonas(char *Nombres[])
     for (int i = 0; i < N; i++)
     {
         printf("\nNombre %d: %s", (i+1), Nombres[i]);
+    }
+}
+
+void BuscarNombre(char *Nombres[], int id)
+{
+    if (id > N || N < 0)
+    {
+        printf("\nNo se encontro el valor buscado.\n");
+    } else {
+        printf("\nNombre: %s\n", Nombres[id]);
     }
 }
