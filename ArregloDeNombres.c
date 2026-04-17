@@ -9,7 +9,7 @@
 //___________________________
 //constantes
 //___________________________
-#define N 2
+#define N 5
 
 //___________________________
 //DECLARACION DE FUNCIONES
@@ -38,6 +38,13 @@ int main(){
         strcpy(V[i], Buff);
     }
     
+    //___________________________
+    //INTERFAZ DE USUARIO
+    //___________________________
+
+
+
+    /*
     MostrarPersonas(V);
     
     int id;
@@ -55,6 +62,7 @@ int main(){
     palabra_clave = (char*)malloc(strlen(Buff)*sizeof(char));
     strcpy(palabra_clave, Buff);
     int buscar = BuscaNombrePorPalabra(V, palabra_clave);
+    */
     return 0;
 }
 
