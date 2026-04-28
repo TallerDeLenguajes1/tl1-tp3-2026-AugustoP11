@@ -71,34 +71,17 @@ int main(){
             } else {
                 printf("\nNo se encontro ningun nombre\n");
             }
+            free(palabraClave);
             break;
         default:
             printf("\nIngrese una opcion valida\n");
             break;
         }
     } while (opcion != 1 && opcion != 2);
-    /*
-    MostrarPersonas(V);
-    
-    int id;
-    printf("\nIngrese un ID: ");
-    scanf("%d", &id);
-    getchar();
 
-    BuscaNombrePorId(V, id);
+    //Libero memoria
+    free(V);
 
-    
-    printf("\nIngrese una palabra clave: ");
-    gets(Buff);
-    fflush(stdin);
-    char *palabra_clave;
-    palabra_clave = (char*)malloc(strlen(Buff)*sizeof(char));
-    strcpy(palabra_clave, Buff);
-
-        //prueba nueva version de BuscaNombrePorPalabra()
-    char palabraClave[] = "ho";
-    char * nombreEncontrado = BuscaNombrePorPalabra(V, palabraClave);
-    */
     return 0;
 }
 
