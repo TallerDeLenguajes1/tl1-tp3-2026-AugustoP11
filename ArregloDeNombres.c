@@ -18,7 +18,7 @@ void MostrarPersonas(char *Nombres[]);
 
 void BuscaNombrePorId(char *Nombres[], int id);
 
-int BuscaNombrePorPalabra(char *Nombres[], char *palabra_clave);
+char * BuscaNombrePorPalabra(char *Nombres[], char *palabra_clave);
 
 //___________________________
 //funcion main
@@ -61,7 +61,10 @@ int main(){
     char *palabra_clave;
     palabra_clave = (char*)malloc(strlen(Buff)*sizeof(char));
     strcpy(palabra_clave, Buff);
-    int buscar = BuscaNombrePorPalabra(V, palabra_clave);
+
+        //prueba nueva version de BuscaNombrePorPalabra()
+    char palabraClave[] = "ho";
+    char * nombreEncontrado = BuscaNombrePorPalabra(V, palabraClave);
     */
     return 0;
 }
@@ -87,25 +90,18 @@ void BuscaNombrePorId(char *Nombres[], int id)
     }
 }
 
-int BuscaNombrePorPalabra(char *Nombres[], char *palabra_clave)
+char * BuscaNombrePorPalabra(char *Nombres[], char *palabra_clave)
 {
-    int flag = 0;
     int i = 0;
-    while (flag == 0 && i < N)
+    while (i < N)
     {
         char *coincidencia = strstr(Nombres[i], palabra_clave);
         
         if (coincidencia)
         {
-            printf("\nNombre: %s", Nombres[i]);
-            flag = 1;
+            return (Nombres[i]);
         }
         i++;
     }
-    if (flag == 1)
-    {
-        return 0;
-    } else {
-        return (-1);
-    }
+    return (NULL);
 }
