@@ -42,8 +42,41 @@ int main(){
     //INTERFAZ DE USUARIO
     //___________________________
 
+    printf("____________BUSQUEDA DE NOMBRE____________\n1. Ingrese '1' para realiar una busqueda por ID\n2. Ingrese '2' para realizar una busqueda por palabra clave\n");
+    int opcion;
+    int id;
 
-
+    do {
+        scanf("%d", &opcion);
+        fflush(stdin);
+        switch (opcion)
+        {
+        case 1:
+            printf("\nIngrese un ID: ");
+            scanf("%d", &id);
+            getchar();
+            BuscaNombrePorId(V, id);
+            break;
+        
+        case 2:
+            printf("\nIngrese una palabra clave: ");
+            gets(Buff);
+            char * palabraClave = (char *) malloc(strlen(Buff) * sizeof(char) + 1);
+            strcpy(palabraClave, Buff);
+            char * nombreEncontrado = BuscaNombrePorPalabra(V, palabraClave);
+            if (nombreEncontrado != NULL)
+            {
+                printf("\n");
+                puts(nombreEncontrado);
+            } else {
+                printf("\nNo se encontro ningun nombre\n");
+            }
+            break;
+        default:
+            printf("\nIngrese una opcion valida\n");
+            break;
+        }
+    } while (opcion != 1 && opcion != 2);
     /*
     MostrarPersonas(V);
     
@@ -95,7 +128,8 @@ char * BuscaNombrePorPalabra(char *Nombres[], char *palabra_clave)
     int i = 0;
     while (i < N)
     {
-        char *coincidencia = strstr(Nombres[i], palabra_clave);
+        char *coincidencia;
+        coincidencia = strstr(Nombres[i], palabra_clave);
         
         if (coincidencia)
         {
